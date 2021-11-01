@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>School</title>
+</head>
+
+<body>
+	<h3>All School Data</h3><br /><br /><br />
+	<table border="2">
+		<thead>
+			<tr>
+				<th></th>
+				<th>School Name</th>
+				<th>City</th>
+				<th>Library Details</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="school: ${schools}">
+				<td th:text="${school.id}"></td>
+				<td th:text="${school.name}" />
+				<td th:text="${school.city}" />
+				<td>
+					<table border="1">
+						<tr th:each="lib: ${school.libraries}">
+							<td th:text="${lib.libraryName}" />
+							<td><span th:each="book: ${lib.books}"
+									th:text="@{${book.bookName}+' available at Shelf #'+${book.shelfNo}}" /><br /> </td>
+							<td><a th:href="@{'/addBook?libId='+${lib.id}}">Add Book</a></td>
+						</tr>
+					</table>
+				</td>
+				<td><a
+						th:href="@{'/addSchool?schoolId='+${school.id}}">Edit School</a>  <a
+						th:href="@{'/addLibrary?schoolId='+${school.id}}">Add Library</a>  <a th:href="@{'/school/delete?id='+${school.id}}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table><br /><br />
+	<a href="/addSchool">Add School</a>
+</body>
+
+</html>
