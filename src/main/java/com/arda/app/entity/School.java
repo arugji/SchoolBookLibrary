@@ -29,6 +29,12 @@ public class School {
 	@Column(name = "city", length = 100, nullable = false)
 	private String city;
 
+	@Column(name = "email", nullable = false)
+	private String email;
+	
+	@Column(name = "zipcode", length = 5, nullable = false)
+	private int zipcode;
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Library> libraries;
 }

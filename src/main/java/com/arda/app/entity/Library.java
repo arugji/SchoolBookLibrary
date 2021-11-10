@@ -25,6 +25,12 @@ public class Library {
 
 	@Column(name = "libraryName", length = 100, nullable = false)
 	private String libraryName;
+	
+	@Column(name = "email", nullable = false)
+	private String email;
+	
+	@Column(name = "zipcode", length = 5, nullable = false)
+	private int zipcode;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Book> books;

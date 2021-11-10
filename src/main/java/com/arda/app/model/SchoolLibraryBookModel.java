@@ -2,6 +2,8 @@ package com.arda.app.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+
 import lombok.Data;
 
 @Data
@@ -14,4 +16,6 @@ public class SchoolLibraryBookModel implements Serializable {
 	private long schoolId;
 	private String bookName;
 	private int shelfNo;
+	private String email;	
+	private int zipcode;
 }

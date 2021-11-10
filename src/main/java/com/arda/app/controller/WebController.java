@@ -77,6 +77,8 @@ public class WebController {
 		School sc = repository.findById(lm.getSchoolId()).get();
 		Library lb = new Library();
 		lb.setLibraryName(lm.getLibraryName());
+		lb.setEmail(lm.getEmail());
+		lb.setZipcode(lm.getZipcode());
 		sc.getLibraries().add(lb);
 		repository.save(sc);
 		return "redirect:/";
